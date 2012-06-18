@@ -1,3 +1,5 @@
+include_recipe "sudo"
+
 user "railsready" do
   username node[:railsready][:install][:user]
   comment "Temporary railsready install user"
