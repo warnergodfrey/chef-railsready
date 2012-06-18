@@ -1,1 +1,1 @@
-default[:railsready][:install][:user] = "nobody"
+default[:railsready][:install][:user] = "railsready"
