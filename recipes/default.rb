@@ -1,4 +1,5 @@
 directory "/var/log/railsready" do
+  mode "0777"
   action :create
 end
 
