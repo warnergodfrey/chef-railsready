@@ -39,4 +39,5 @@ end
 
 directory "/home/#{node[:railsready][:install][:user]}" do
   action :delete
+  recursive true
 end
