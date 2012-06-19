@@ -16,7 +16,8 @@ end
 
 bash "install-railsready" do
   user node[:railsready][:install][:user]
-  cwd "/home/#{node[:railsready][:install][:user]}" 
+  cwd "/home/#{node[:railsready][:install][:user]}"
+  environment { "HOME" => "/home/#{node[:railsready][:install][:user]}" }
   code <<-EOH
     wget https://raw.github.com/joshfng/railsready/master/railsready.sh &&
     echo 1 | bash railsready.sh
