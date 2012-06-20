@@ -11,8 +11,13 @@ user "railsready" do
   action :create
 end
 
-group "admin" do
-  members [ node[:railsready][:install][:user] ]
+include_recipe "sudo"
+
+sudo "railsready" do
+  user "railsready"
+  commands ["/home/#{node[:railsready][:install][:user]}/railsready.sh"]
+  host "ALL"
+  nopasswd true
 end
 
 directory "/home/#{node[:railsready][:install][:user]}" do
@@ -43,4 +48,8 @@ end
 directory "/home/#{node[:railsready][:install][:user]}" do
   action :delete
   recursive true
+end
+
+file "/etc/sudoers.d/railsready" do
+  action :delete
 end
