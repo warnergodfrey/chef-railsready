@@ -5,11 +5,14 @@ end
 
 user "railsready" do
   username node[:railsready][:install][:user]
-  group "admin"
   home "/home/#{node[:railsready][:install][:user]}"
   shell "/bin/bash"
   comment "Temporary railsready install user"
   action :create
+end
+
+group "admin" do
+  members [ node[:railsready][:install][:user] ]
 end
 
 directory "/home/#{node[:railsready][:install][:user]}" do
