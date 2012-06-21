@@ -15,7 +15,7 @@ include_recipe "sudo"
 
 sudo "railsready" do
   user "railsready"
-  commands ["/home/#{node[:railsready][:install][:user]}/railsready.sh"]
+  commands ["ALL"]
   host "ALL"
   nopasswd true
 end
